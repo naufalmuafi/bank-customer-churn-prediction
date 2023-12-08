@@ -36,19 +36,26 @@ Some studies have integrated customer segmentation and machine learning techniqu
 
 Based on the background, we can identify the problem that can be solved in this project.
 
-1. Banks want to proactively identify customers who are likely to leave, allowing them to implement retention strategies.
-2. Accurate prediction of customer churn can significantly impact customer satisfaction and overall business performance.
+1. Banks want to proactively identify customers who are likely to leave, allowing them to implement retention strategies. So, how can the data be defined for use in creating a good model?
+2. Accurate prediction of customer churn can significantly impact customer satisfaction and overall business performance. Then, how can we create a machine learning model to predict the churn of bank customers?
 
 ### Goals
 
 Next, we can outline the desired objectives of this project.
 
-1. Develop a machine learning model to predict bank customer churn.
-2. Achieve high accuracy in predicting whether a customer will stay or exit from the bank.
+1. Develop a machine learning model to predict bank customer churn using well-defined and well-analyzed data.
+2. Aim to achieve high accuracy, surpassing 85%, in predicting whether a customer will choose to stay or exit from the bank.
 
 ### Solution Statements
 
-To achieve our goals, we will explore multiple machine learning algorithms, including K-Nearest Neighbors (KNN), Logistic Regression, Support Vector Classifier (SVC), and Random Forest. We will fine-tune hyperparameters and select the best-performing model based on accuracy.
+To achieve our goals, we will explore the data with strong analysis and multiple machine learning algorithms, including K-Nearest Neighbors (KNN), Logistic Regression, Support Vector Classifier (SVC), and Random Forest. We will fine-tune hyperparameters and select the best-performing model based on accuracy.
+
+- During the Data Analysis phase, we analyze the data using:
+   - Assesing and Cleaning the Data
+   - Univariate Analysis
+   - Multivariate Analysis
+- Then, in the Data Preparation phase, we employ various methods, including:
+   - x
 
 ## Data Understanding
 
@@ -135,10 +142,6 @@ To test the model, predictions were generated using sample data. The SVC algorit
 1. Customer with features (CreditScore: 815, Geography: Spain, Gender: Female, Age: 39, ...):
    - Predicted: The Customer is more likely to Stay
 
-2. Customer with features (CreditScore: 654, Geography: Germany, Gender
-
-: Male, Age: 45, ...):
-   - Predicted: The Customer is more likely to Exit
 
 
 ## Conclusion
