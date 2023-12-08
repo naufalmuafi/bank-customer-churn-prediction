@@ -50,13 +50,27 @@ Next, we can outline the desired objectives of this project.
 
 To achieve our goals, we will explore the data with strong analysis and multiple machine learning algorithms, including K-Nearest Neighbors (KNN), Logistic Regression, Support Vector Classifier (SVC), and Random Forest. We will fine-tune hyperparameters and select the best-performing model based on accuracy.
 
+- First, we load the data from an open source dataset, such as Kaggle. Then, it is essential to comprehend the definition of each feature in the dataset.
+  
 - During the Data Analysis phase, we analyze the data using:
    - Assesing and Cleaning the Data
    - Univariate Analysis
    - Multivariate Analysis
+     
 - Then, in the Data Preparation phase, we employ various methods, including:
-   - x
+   - Handle Imbalanced Data with Resample
+   - Category Feature Encoding
+   - Correlation Analysis
+   - Train Test Split
+   - Feature Scaling
+     
+- In the development of machine learning models, we will implement several algorithms. Therefore, this project will include the implementation of four algorithms, namely:
+   - K-Nearest Neighbourhood Algorithm: K-Nearest Neighbors (KNN) is a simple and effective algorithm used for classification and regression tasks. It classifies a data point based on the majority class of its k-nearest neighbors in the feature space.
+   - Logistic Regression Algorithm: Logistic Regression is a statistical model used for binary classification. It estimates the probability that a given instance belongs to a particular category and makes predictions based on a logistic function.
+   - Support Vector Classifier (SVC) Algorithm: Support Vector Classifier, or Support Vector Machine (SVM), is a powerful algorithm for both classification and regression tasks. It works by finding the hyperplane that best separates the data into different classes while maximizing the margin.
+   - Random Forest Algorithm: Random Forest is an ensemble learning method that builds a multitude of decision trees during training and outputs the mode of the classes (classification) or the mean prediction (regression) of the individual trees. It is known for its robustness and high accuracy.
 
+- In aiming to achieve the optimal version of the model, this project will utilize the Grid Search Cross Validation method to determine the best parameters for the model
 ## Data Understanding
 
 The dataset used for this project is the [Bank Customer Churn Prediction Dataset](https://www.kaggle.com/datasets/shantanudhakadd/bank-customer-churn-prediction/data) obtained from Kaggle. It contains information about bank customers and their likelihood to churn.
@@ -81,11 +95,7 @@ The dataset used for this project is the [Bank Customer Churn Prediction Dataset
 
 ### Handle Imbalanced Data with Resample
 
-The target feature, 'Exited,' exhibited imbalanced data. We addressed this by oversampling the minority class.
-
-### Category Feature Encoding
-
-Categorical features such as 'Geography' and 'Gender' were encoded into binary values (0s and 1s) using one-hot encoding.
+The target feature, 'Exited,' exhi- In aiming to achieve the optimal version of the model, this project will utilize the Grid Search Cross Validation method to determine the best parameters for the model.ncoded into binary values (0s and 1s) using one-hot encoding.
 
 ### Correlation Analysis
 
