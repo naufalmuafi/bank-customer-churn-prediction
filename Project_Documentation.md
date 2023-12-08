@@ -20,7 +20,9 @@ Naufal Mu'afi
 ## Project Background or Domain
 
 
-![Customer-Churn-Illustration-960x343](https://github.com/naufalmuafi/bank-customer-churn-prediction/assets/72964378/a2216848-5581-4617-a506-f4c8d44e17f6)
+![Customer-Churn-Illustration-960x343[^pict1]](https://github.com/naufalmuafi/bank-customer-churn-prediction/assets/72964378/a2216848-5581-4617-a506-f4c8d44e17f6)
+
+[^pict1]: [Illustration by CLEARTOUCH](https://www.cleartouch.in/what-is-customer-churn-and-how-do-you-prevent-it/)
 
 
 In the banking industry, customer churn is a critical concern as it directly impacts a bank's revenue and profitability. Understanding and predicting customer churn can help banks take proactive measures to retain customers. Customer churn, defined as the likelihood of customers discontinuing their association with a company within a specific timeframe, presents a significant challenge faced by many global enterprises [^1]. Termed as customer agitation in business, it occurs when customers express dissatisfaction with the provided service or product, leading to attrition or the cessation of engagement with the business. In the contemporary business landscape, an increasing number of enterprises prioritize customer retention due to the adverse effects of customer churn. The repercussions include substantial premium losses, reduced profit margins, and the potential loss of referral business from loyal clientele [^2].
@@ -50,30 +52,109 @@ Next, we can outline the desired objectives of this project.
 
 To achieve our goals, we will explore the data with strong analysis and multiple machine learning algorithms, including K-Nearest Neighbors (KNN), Logistic Regression, Support Vector Classifier (SVC), and Random Forest. We will fine-tune hyperparameters and select the best-performing model based on accuracy.
 
+- First, we load the data from an open source dataset, such as Kaggle. Then, it is essential to comprehend the definition of each feature in the dataset.
+  
 - During the Data Analysis phase, we analyze the data using:
-   - Assesing and Cleaning the Data
-   - Univariate Analysis
-   - Multivariate Analysis
+   - Assessing and Cleaning the Data:
+     Identify and handle missing values, outliers, and errors to ensure data quality.
+   - Univariate Analysis:
+     Analyze individual features to gain insights into their distributions and characteristics.
+   - Multivariate Analysis:
+     Explore relationships and interactions between multiple features to uncover patterns.
+
 - Then, in the Data Preparation phase, we employ various methods, including:
-   - x
+   - Handle Imbalanced Data with Resample:
+     Address imbalanced datasets by resampling techniques such as oversampling or undersampling.
+   - Category Feature Encoding:
+     Transform categorical features into a format suitable for machine learning algorithms.
+   - Correlation Analysis:
+     Examine the correlation between features to identify and handle multicollinearity.
+   - Train Test Split:
+     Split the dataset into training and testing sets for model evaluation.
+   - Feature Scaling:
+     Standardize or normalize numerical features to ensure they are on a similar scale, benefiting certain machine learning algorithms.
+     
+- In the development of machine learning models, we will implement several algorithms. Therefore, this project will include the implementation of four algorithms, namely:
+   - K-Nearest Neighbourhood Algorithm: K-Nearest Neighbors (KNN) is a simple and effective algorithm used for classification and regression tasks. It classifies a data point based on the majority class of its k-nearest neighbors in the feature space.
+   - Logistic Regression Algorithm: Logistic Regression is a statistical model used for binary classification. It estimates the probability that a given instance belongs to a particular category and makes predictions based on a logistic function.
+   - Support Vector Classifier (SVC) Algorithm: Support Vector Classifier, or Support Vector Machine (SVM), is a powerful algorithm for both classification and regression tasks. It works by finding the hyperplane that best separates the data into different classes while maximizing the margin.
+   - Random Forest Algorithm: Random Forest is an ensemble learning method that builds a multitude of decision trees during training and outputs the mode of the classes (classification) or the mean prediction (regression) of the individual trees. It is known for its robustness and high accuracy.
+
+- In aiming to achieve the optimal version of the model, this project will utilize the **Grid Search Cross Validation** method to determine the best parameters for the model.
+
+  Grid Search Cross Validation is a hyperparameter tuning technique that systematically evaluates a predefined set of hyperparameter combinations for a machine learning model. It works by creating a grid of all possible hyperparameter values and performing cross-validation for each combination to identify the set that yields the best performance.
+
+  **Algorithm:**
+  1. Define a grid of hyperparameter values for the model.
+  2. For each combination of hyperparameters in the grid:
+     - a. Split the dataset into training and validation sets.
+     - b. Train the model on the training set.
+     - c. Evaluate the model on the validation set using a chosen performance metric.
+     - d. Repeat the process for different folds in cross-validation if applicable.
+  3. Select the hyperparameter combination that resulted in the best performance.
+
+  **Mathematical Expression:**
+  Let $H$ be the set of hyperparameter combinations, $S$ be the performance metric, and $K$ be the number of folds in cross-validation. The optimal hyperparameter combination $\theta^*$ is obtained by:
+  
+  $\theta^* = \arg\min_{\theta \in H} \left( \frac{1}{K} \sum_{k=1}^K S(\text{Model}_{\theta}, \text{Validation}_k) \right)$
+  
+  where $\text{Model}_{\theta}$ represents the model trained with hyperparameter combination $\theta$ and $\text{Validation}_k$ denotes the validation set for the $k$-th fold.
+  
+  Grid Search Cross Validation aids in finding hyperparameter values that optimize the model's performance and generalization to unseen data.  
+
 
 ## Data Understanding
 
 The dataset used for this project is the [Bank Customer Churn Prediction Dataset](https://www.kaggle.com/datasets/shantanudhakadd/bank-customer-churn-prediction/data) obtained from Kaggle. It contains information about bank customers and their likelihood to churn.
 
+
+![dataset_info](https://github.com/naufalmuafi/bank-customer-churn-prediction/assets/72964378/e706020e-5584-4cc0-bfd4-092d2f17b9f1)
+
+
+**Dataset Information:**
+
+Type | Information
+--- | ---
+Source | [Kaggle Dataset : Bank Customer Churn Prediction](https://www.kaggle.com/datasets/shantanudhakadd/bank-customer-churn-prediction/data)
+License | Other
+Category | `Economy`, `Business`, `Finance`, `Banking`
+Usability Rating | 9.71
+File Type and Size | CSV (268 kb)
+
 ### Variables in the Dataset:
 
-1. **CreditScore**: Explains how the bank customer's credit score is rated (ranging from 350 to 850).
-2. **Geography**: Customer demographics based on the country.
-3. **Gender**: Gender of the bank customer.
-4. **Age**: Bank customer age (ranging from 18 to 92 years old).
-5. **Tenure**: Duration a customer has been associated with or held an account with the bank.
-6. **Balance**: Average amount of money held in a customer's account.
-7. **NumOfProducts**: The count of financial products or services that a customer holds with the bank.
-8. **HasCrCard**: Binary classification of whether a bank customer has a credit card or not.
-9. **IsActiveMember**: Indicates whether the customer is still an active member in the bank.
-10. **EstimatedSalary**: An approximation of a customer's individual income in a month.
-11. **Exited**: The target variable indicating whether a customer has exited from the bank.
+`Churn_Modelling.csv` dataset file has 10,000 rows and 14 columns. This means the dataset contains information for 10.000 bank customers, including 14 various details such as Gender, Age, Geography, and many more. The dataset comprises 9 columns of `int64` data type, 2 columns of `float64` data type, and 3 columns of `object` data type. It's not possible to determine whether the data represents numerical or categorical features based solely on the data type. Initially, we identify 3 dummy features in the dataset:  `RowNumber`, `CustomerId`, and `Surname`. Upon further examination, we classify the dataset as having 4 numerical features, and 7 categorical features.
+
+
+Explanation of 14 columns or feature from the `Churn_Modelling.csv` dataset:
+
+1. `RowNumber` - Indicates the row number.
+
+2. `CustomerId` - Each customer has a unique ID stored in this feature.
+
+3. `Surname` - The Bank customer's surname.
+
+4. `CreditScore` - Explains how the Bank Customer's Credit Score is rated. In this dataset, the value ranges from 350 to 850.
+
+5. `Geography` - Customer demographics based on the country.
+
+6. `Gender` - Gender of the Bank Customer.
+
+7. `Age` - Bank Customer Age, ranging from 18 to 92 years old.
+
+8. `Tenure` - Duration a customer has been associated with or held an account with the bank. In this dataset, the distribution of this feature ranges from 0 to 10 years.
+
+9. `Balance` - Refers to the average amount of money held in a customer's account. It's a continuous feature with minimum balance is $0, and the maximum balance is $250898.09.
+
+10. `NumOfProducts` - The variety or count of financial prodcuts or services that a customer holds with the Bank. In this dataset, the bank has a total of 4 products.
+
+11. `HasCrCard` - Binary Classification of whether a Bank Customer has a credit card or not.
+
+12. `IsActiveMember` - a feature for customer classification; it indicates whether the customer is still active member in the bank or has become a passive member.
+
+13. `EstimatedSalary` - an Approximation or prediction of a customer's individual income in a month. In this dataset, incomes range from $11.58 to $199992.48.
+
+14. `Exited` - The target or output that provides various details to decide either a customer is more likely to stay in the bank or has exited from the bank.
 
 
 
@@ -81,11 +162,7 @@ The dataset used for this project is the [Bank Customer Churn Prediction Dataset
 
 ### Handle Imbalanced Data with Resample
 
-The target feature, 'Exited,' exhibited imbalanced data. We addressed this by oversampling the minority class.
-
-### Category Feature Encoding
-
-Categorical features such as 'Geography' and 'Gender' were encoded into binary values (0s and 1s) using one-hot encoding.
+The target feature, 'Exited,' exhi- In aiming to achieve the optimal version of the model, this project will utilize the Grid Search Cross Validation method to determine the best parameters for the model.ncoded into binary values (0s and 1s) using one-hot encoding.
 
 ### Correlation Analysis
 
