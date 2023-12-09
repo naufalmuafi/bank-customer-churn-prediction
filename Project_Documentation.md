@@ -202,6 +202,10 @@ Explanation of 14 columns or feature from the `Churn_Modelling.csv` dataset:
 
 14. `Exited` - The target or output that provides various details to decide either a customer is more likely to stay in the bank or has exited from the bank.
 
+Based on Geoghraphy, we can visualize the distribution such as:
+
+![geo](https://github.com/naufalmuafi/bank-customer-churn-prediction/assets/72964378/7a13ccf8-c376-4ad8-a82f-4e648dc91c6d)
+
 In addition, below is the visualization of the distribution of numerical features in the dataset
 
 ![data-dist](https://github.com/naufalmuafi/bank-customer-churn-prediction/assets/72964378/b95b07f8-db0a-4cae-8a81-a90c3d4eb8b9)
