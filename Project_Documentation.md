@@ -202,6 +202,25 @@ Explanation of 14 columns or feature from the `Churn_Modelling.csv` dataset:
 
 14. `Exited` - The target or output that provides various details to decide either a customer is more likely to stay in the bank or has exited from the bank.
 
+In addition, below is the visualization of the distribution of numerical features in the dataset
+
+![data-dist](https://github.com/naufalmuafi/bank-customer-churn-prediction/assets/72964378/b95b07f8-db0a-4cae-8a81-a90c3d4eb8b9)
+
+From the plot, it can be inferred that the features 'CreditScore,' 'Age,' and 'Balance' exhibit characteristics that make them suitable for categorization as normally distributed. Despite a spike in the 'Balance' feature at 0, suggesting a concentration of values, the overall distribution appears to follow a normal pattern. On the other hand, the 'EstimatedSalary' feature does not show a clear correlation or relationship within the data. This observation indicates that 'EstimatedSalary' may not follow a distinct distribution pattern or may lack a discernible trend.
+
+![outliers](https://github.com/naufalmuafi/bank-customer-churn-prediction/assets/72964378/9002256c-f367-4a11-844a-9e2778bfe1da)
+
+We can observe that some CreditScore and Age features exhibit outliers. To address this, we can drop the outliers using Interquartile Range (IQR) measures. The Interquartile Range (IQR) method is a statistical technique used to identify outliers in a dataset. It is based on the concept of quartiles, which divide a dataset into four equal parts. The IQR is the range between the first and third quartiles, and it represents the middle 50% of the data. The IQR method identifies outliers as data points that fall outside the range of 1.5 times the IQR below the first quartile or above the third quartile.
+
+Mathematically, the IQR can be expressed as:<br>
+$IQR = Q3 − Q1$
+
+where $Q1$ is the first quartile and $Q3$ is the third quartile. The lower bound and upper bound can be expressed as:
+
+$Lower bound= Q1 − 1.5 × IQR$<br>
+$Upper bound= Q3 + 1.5 × IQR$
+
+The IQR method is a useful technique for identifying outliers in a dataset, particularly when the data is not normally distributed. It is robust to extreme values and can be used to identify both low and high outliers. However, it may not be effective for datasets with a small sample size or when the data is highly skewed. In such cases, other outlier detection methods may be more appropriate.
 
 
 ## Data Preparation
@@ -358,7 +377,7 @@ Recall measures the model's ability to identify all actual positive cases. A hig
 
 The F1-score is the harmonic mean of precision and recall, and it provides a balance between the two metrics. It is calculated using the following formula:
 
-$F1\text{-}score = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$
+$F_{\beta }=\left(1+\beta ^2\right)\frac{precision\times recall}{\beta ^2precision+recall}$
 
 The F1-score takes both false positives and false negatives into account, making it a useful metric for imbalanced datasets where the number of negative cases is much larger than the number of positive cases. A high F1-score indicates that the model has both good precision and recall. These metrics are commonly used to evaluate the performance of classification models and are particularly useful when the class distribution is imbalanced. They provide valuable insights into how well the model is performing in terms of identifying positive cases and avoiding misclassifications.
 
@@ -367,6 +386,8 @@ The F1-score takes both false positives and false negatives into account, making
 Confusion matrices for each model were generated, indicating good performance in predicting true positive and true negative values.
 
 ![confussion-matrix](https://github.com/naufalmuafi/bank-customer-churn-prediction/assets/72964378/b7d1790f-765c-45a9-b437-05b24bd37591)
+
+The confusion matrix is a table that summarizes the performance of a classification model by comparing the predicted and actual class labels. It consists of four values: true positives (TP), false positives (FP), true negatives (TN), and false negatives (FN).
 
 
 ### Model Comparison
@@ -383,8 +404,6 @@ In terms of advantages and disadvantages, the KNN algorithm is simple and easy t
 A comparison of model accuracies revealed that the Support Vector Classifier (SVC) achieved the highest accuracy on both training and test sets.
 
 ![model-comparison](https://github.com/naufalmuafi/bank-customer-churn-prediction/assets/72964378/1e82fe2c-8559-4acd-85e4-748ec01f22fe)
-
-The confusion matrix is a table that summarizes the performance of a classification model by comparing the predicted and actual class labels. It consists of four values: true positives (TP), false positives (FP), true negatives (TN), and false negatives (FN).
 
 
 ## Model Prediction
