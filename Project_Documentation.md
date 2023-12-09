@@ -410,6 +410,15 @@ A comparison of model accuracies revealed that the Support Vector Classifier (SV
 
 To test the model, predictions were generated using sample data. The SVC algorithm consistently provided the best results.
 
+|      | y_true | prediction_KNN | prediction_LR | prediction_SVC | prediction_RF |
+|------|--------|-----------------|----------------|-----------------|----------------|
+| 5709 | 0      | 1               | 0              | 0               | 0              |
+| 3207 | 0      | 1               | 1              | 0               | 0              |
+| 8843 | 0      | 0               | 0              | 0               | 0              |
+| 2171 | 0      | 0               | 1              | 0               | 0              |
+| 1854 | 1      | 1               | 1              | 1               | 1              |
+
+
 ### Sample Predictions:
 
 1. Customer with features (CreditScore: 815, Geography: Spain, Gender: Female, Age: 39, ...):
