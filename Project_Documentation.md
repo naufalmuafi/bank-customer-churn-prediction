@@ -237,7 +237,7 @@ Figure above shows that the Target Data has an Imbalanced Data, so we can handle
 
 The resample() function from scikit-learn's imbalanced-learn module is a convenient tool for oversampling that can be expressed as:
 
-$Resampled Data = resample(minorityClass, nSamples=desired_count)$
+$Resampled Data = resample(minority class, n-samples = desired count)$
 
 This function randomly replicates instances from the minority class to match the number of instances in the majority class, thereby mitigating class imbalance.
 
@@ -314,7 +314,7 @@ where $P(Y=1|X)$ is the probability of the output being in class 1 given input f
 
 The Support Vector Classifier (SVC) is a supervised learning algorithm that can be used for both classification and regression tasks. In the context of classification, the SVC algorithm finds the hyperplane that best separates the data into different classes. It is particularly effective in high-dimensional spaces. The algorithm works by finding the maximum-margin hyperplane, which is the hyperplane that maximizes the distance to the nearest data points of any class. Mathematically, the objective of the SVC algorithm is to solve the optimization problem that maximizes the margin and minimizes the classification error [^svc1]. The decision function for the SVC is given by:
 
-$f\left(x\right)=sign\left(\sum ^n_{i=1}​α_i​y_i​K\left(x,x_i\right)+b\right)$
+$f\left(x\right)=sign\left(\sum_{i=1}^{n}​α_i​y_i​K\left(x,x_i\right)+b\right)$
 
 where $f(x)$ is the decision function, $\alpha_i$ are the learned Lagrange multipliers, $y_i$ are the class labels, $K(x, x_i)$ is the kernel function, and b is the bias term [^svc1]. SVC was applied, and hyperparameter tuning was performed using GridSearchCV. The model achieved an impressive accuracy of 97.62%.
 
@@ -369,7 +369,7 @@ Recall, also known as sensitivity, is the ratio of true positive predictions to 
 $\text{Recall} = \frac{TP}{TP + FN}$
 
 Where:<br>
-( FN ) is the number of false negative predictions (positive cases incorrectly classified as negative).
+$(FN)$ is the number of false negative predictions (positive cases incorrectly classified as negative).
 
 Recall measures the model's ability to identify all actual positive cases. A high recall value indicates that the model is able to correctly identify a large proportion of the positive cases in the dataset.
 
