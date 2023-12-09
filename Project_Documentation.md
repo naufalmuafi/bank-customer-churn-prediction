@@ -2,6 +2,52 @@
 
 In an era dominated by digital transformations and rapidly evolving customer expectations, the banking industry is faced with the critical challenge of retaining its customer base. Recognizing the significance of proactive strategies, this project endeavors to address the imminent concern of customer churn through the lens of predictive analytics.
 
+
+# Table of Contents
+
+1. [**Project Overview**](#project-overview)<br><t>
+    1.1. [Project Title](#project-title)<br><t>
+    1.2. [Project Executive Summary](#project-executive-summary)<br><t>
+    1.3. [Project Author](#project-author)<br><t>
+
+2. [**Project Background or Domain**](#project-background-or-domain)<br><t>
+
+3. [**Business Understanding**](#business-understanding)<br><t>
+    3.1. [Problem Statements](#problem-statements)<br><t>
+    3.2. [Goals](#goals)<br><t>
+    3.3. [Solution Statements](#solution-statements)<br><t>
+
+4. [**Data Understanding**](#data-understanding)<br><t>
+    4.1. [Dataset Information](#dataset-information)<br><t>
+        4.1.1. [Variables in the Dataset](#variables-in-the-dataset)<br><t>
+
+5. [**Data Preparation**](#data-preparation)<br><t>
+    5.1. [Handle Imbalanced Data with Resample](#handle-imbalanced-data-with-resample)<br><t>
+    5.2. [Category Feature Encoding](#category-feature-encoding)<br><t>
+    5.3. [Correlation Analysis](#correlation-analysis)<br><t>
+    5.4. [Train Test Split](#train-test-split)<br><t>
+    5.5. [Feature Scaling](#feature-scaling)<br><t>
+
+6. [**Model Development**](#model-development)<br><t>
+    6.1. [K-Nearest Neighbourhood Algorithm](#k-nearest-neighbourhood-algorithm)<br><t>
+    6.2. [Logistic Regression Algorithm](#logistic-regression-algorithm)<br><t>
+    6.3. [Support Vector Classifier Algorithm](#support-vector-classifier-algorithm)<br><t>
+    6.4. [Random Forest Algorithm](#random-forest-algorithm)<br><t>
+
+7. [**Model Evaluation**](#model-evaluation)<br><t>
+    7.1. [Confusion Matrix](#confusion-matrix)<br><t>
+    7.2. [Model Comparison](#model-comparison)<br><t>
+
+8. [**Model Prediction**](#model-prediction)<br><t>
+    8.1. [Sample Predictions](#sample-predictions)<br><t>
+
+9. [**Conclusion**](#conclusion)<br><t>
+    9.1. [Recommendations](#recommendations)<br><t>
+    9.2. [Future Work](#future-work)<br><t>
+
+10. [**References**](#references)<br><t>
+
+
 ## Project Overview
 
 ### Project Title
@@ -160,54 +206,185 @@ Explanation of 14 columns or feature from the `Churn_Modelling.csv` dataset:
 
 ## Data Preparation
 
+As mentioned in the solution statement, we employ certain techniques, including:
+
 ### Handle Imbalanced Data with Resample
 
-The target feature, 'Exited,' exhi- In aiming to achieve the optimal version of the model, this project will utilize the Grid Search Cross Validation method to determine the best parameters for the model.ncoded into binary values (0s and 1s) using one-hot encoding.
+In order to give a comprehensive view of the unbalanced data problem, we have started with exploring the target data.
+
+![Target-Distribution](https://github.com/naufalmuafi/bank-customer-churn-prediction/assets/72964378/4becac2a-bd83-4222-8931-15d6f740e8c9)
+
+Figure above shows that the Target Data has an Imbalanced Data, so we can handle it with resample method. Random **over-sampling**, classified as a non-heuristic algorithm, aims to address class imbalance by randomly duplicating instances of the minority target, thereby promoting a more balanced distribution [^over-sampling-1]. Nevertheless, this approach has two drawbacks. Firstly, it increases the risk of overfitting by generating identical reproductions of minority class instances [^over-sampling-1]. Secondly, it intensifies the time-consuming nature of the learning process, particularly when the original dataset is large but imbalanced, mirroring the characteristics of our dataset.
+
+The resample() function from scikit-learn's imbalanced-learn module is a convenient tool for oversampling that can be expressed as:
+
+$Resampled Data = resample(minorityClass, nSamples=desired_count)$
+
+This function randomly replicates instances from the minority class to match the number of instances in the majority class, thereby mitigating class imbalance.
+
+### Category Feature Encoding
+
+In this section of the project, we focus on the encoding of categorical features within the dataset to facilitate their integration into machine learning models. By converting categorical variables into binary representations, we ensure that the data is in a suitable format for various algorithms. The core operation involves the utilization of the pd.get_dummies() method on the 'churn' DataFrame. The categorical columns subjected to one-hot encoding are 'Geography' and 'Gender'. The drop_first=True parameter is employed to exclude the first category level during encoding, mitigating potential multicollinearity issues in subsequent analyses, enhancing the robustness of subsequent analyses.
 
 ### Correlation Analysis
 
-A correlation matrix was generated to understand the relationships between features. Low correlations were observed between both categorical and numerical features and the target variable 'Exited.'
+After encoding the categorical data, we can go further to the next step of the analysis, a correlation matrix was generated to comprehensively examine the relationships between features within the dataset. The correlation matrix provides insights into how variables, both categorical and numerical, are interrelated. Notably, during this analysis, it was observed that the correlations between the features and the target variable 'Exited' were relatively low. This finding suggests that the dataset exhibits a diverse set of features with varying degrees of influence on the target variable.
+
+Correlation analysis assesses the linear relationship between pairs of variables in a dataset. A correlation matrix provides a comprehensive overview of these relationships. The heatmap() function from the seaborn library is often employed to visualize correlation matrices. Mathematically, correlation (Pearson correlation coefficient, $ρ$) between variables $X$ and $Y$ can be expressed as:
+
+$ρ\left(X, Y\right)=\frac{Cov\left(X, Y\right)​}{σ_X⋅ \ σ_Y}$
+
+The heatmap visualizes these correlation coefficients, with warmer colors indicating stronger positive correlations, cooler colors indicating stronger negative correlations, and neutral colors for weaker correlations.
 
 ### Train Test Split
 
-The dataset was divided into training and test datasets with an 80-20 split.
+Following the correlation analysis, the dataset underwent a crucial step known as train-test split. This process involved dividing the dataset into two subsets: a training dataset and a test dataset. Dividing the dataset into training and testing sets is crucial for evaluating model performance. The split was executed with an 80-20 ratio, allocating 80% of the data for training machine learning models and reserving the remaining 20% for evaluating model performance. This approach helps ensure that the model is trained on a sufficiently large dataset while still having an independent set of data for validation and testing. More, this division ensures that the model is trained on a sufficiently large dataset while maintaining an independent dataset for unbiased model evaluation.
 
 ### Feature Scaling
 
-Numerical features were scaled to a range of 0 to 1 using StandardScaler.
+After the train-test split, the numerical features within the dataset were subjected to feature scaling using the StandardScaler. Feature scaling is a vital preprocessing step that standardizes the range of numerical features, bringing them to a consistent scale. In this case, the scaling was performed to constrain numerical features within a range of 0 to 1. Standardizing the features helps prevent variables with larger scales from dominating the modeling process, ensuring fair consideration of all features during model training and evaluation. The use of StandardScaler is a common practice to achieve this normalization.
 
+Feature scaling ensures that numerical features are on a similar scale, preventing certain features from dominating the model training process. The StandardScaler() from scikit-learn standardizes features by transforming them to have a mean $(μ)$ of $0$ and a standard deviation $(σ)$ of $1$. Mathematically, for a feature $X$:
+
+$X_{scaled}=\frac{X − μ​}{σ}$
+
+This transformation maintains the relative differences between feature values while placing them on a comparable scale, enhancing the stability and convergence of machine learning models during training.
 
 
 ## Model Development
 
-### K-Nearest Neighbourhood Algorithm
+### **K-Nearest Neighbourhood Algorithm**
 
-The KNN algorithm was employed, and hyperparameter tuning was performed using GridSearchCV. The model achieved an accuracy of 81.24%.
+The K-Nearest Neighbors (KNN) algorithm is a type of instance-based learning, where the function is only approximated locally and all computation is deferred until function evaluation. It is a simple and effective algorithm for classification and regression tasks. The KNN algorithm is based on the principle that similar data points are close to each other in the feature space. Mathematically, the KNN algorithm predicts the classification of a data point based on the majority class of its K nearest neighbors. The distance between data points is typically calculated using methods such as Euclidean distance or Manhattan distance [^knn1]. The prediction for a new data point x is based on a majority vote of its k-nearest neighbors, and can be expressed as:
 
-### Logistic Regression Algorithm
+$\hat{y}^​ = majority vote\left(y_1, y_2, ..., y_k\right)$
 
-Logistic Regression was implemented, and hyperparameter tuning was conducted using GridSearchCV. The model achieved an accuracy of 72.48%.
+where $\hat{y}$ is the predicted class for $x$, and $y_1, y_2, ..., y_k$ are the classes of the k-nearest neighbors [^knn2]. The KNN algorithm was employed, and hyperparameter tuning was performed using GridSearchCV. The model achieved an accuracy of 81.24%.
+
+|              | precision | recall  | f1-score | support     |
+|--------------|-----------|---------|----------|-------------|
+| Stay         | 0.858744  | 0.748047| 0.799582 | 1536.000000 |
+| Exit         | 0.776688  | 0.876873| 0.823745 | 1535.000000 |
+| accuracy     | 0.812439  | 0.812439| 0.812439 | 0.812439    |
+| macro avg    | 0.817716  | 0.812460| 0.811664 | 3071.000000 |
+| weighted avg | 0.817729  | 0.812439| 0.811660 | 3071.000000 |
+
+
+### **Logistic Regression Algorithm**
+
+Logistic Regression is a statistical model that uses a logistic function to model the probability of a binary outcome. It is widely used for binary classification problems. The logistic function, also known as the sigmoid function, is defined as:
+
+$σ\left(z\right)=\frac{1}{1+e^{-z}}$
+
+where z is a linear combination of the input features and model parameters. The logistic regression algorithm minimizes the logistic loss function to find the best-fitting model parameters. It is a linear model and makes predictions based on the weighted sum of the input features [^lr1]. The probability of the output being in a particular class is given by the logistic function, and the prediction can be expressed as:
+
+$P\left(Y=1∣X\right)=\frac{1}{1+e^{−\left(β_0​+β_1​X_1​+...+β_p​X_p​\right)}}$
+
+where $P(Y=1|X)$ is the probability of the output being in class 1 given input features $X$, $\beta_0, \beta_1, ..., \beta_p$ are the model parameters, and $X_1, X_2, ..., X_p$ are the input features [^lr2]. Logistic Regression was implemented, and hyperparameter tuning was conducted using GridSearchCV. The model achieved an accuracy of 72.48%.
+
+|              | precision | recall  | f1-score | support     |
+|--------------|-----------|---------|----------|-------------|
+| Stay         | 0.719644  | 0.736979| 0.728208 | 1536.000000 |
+| Exit         | 0.730307  | 0.712704| 0.721398 | 1535.000000 |
+| accuracy     | 0.724845  | 0.724845| 0.724845 | 0.724845    |
+| macro avg    | 0.724976  | 0.724841| 0.724803 | 3071.000000 |
+| weighted avg | 0.724974  | 0.724845| 0.724804 | 3071.000000 |
+
 
 ### Support Vector Classifier Algorithm
 
-SVC was applied, and hyperparameter tuning was performed using GridSearchCV. The model achieved an impressive accuracy of 97.62%.
+The Support Vector Classifier (SVC) is a supervised learning algorithm that can be used for both classification and regression tasks. In the context of classification, the SVC algorithm finds the hyperplane that best separates the data into different classes. It is particularly effective in high-dimensional spaces. The algorithm works by finding the maximum-margin hyperplane, which is the hyperplane that maximizes the distance to the nearest data points of any class. Mathematically, the objective of the SVC algorithm is to solve the optimization problem that maximizes the margin and minimizes the classification error [^svc1]. The decision function for the SVC is given by:
+
+$f\left(x\right)=sign\left(\sum ^n_{i=1}​α_i​y_i​K\left(x,x_i\right)+b\right)$
+
+where $f(x)$ is the decision function, $\alpha_i$ are the learned Lagrange multipliers, $y_i$ are the class labels, $K(x, x_i)$ is the kernel function, and b is the bias term [^svc1]. SVC was applied, and hyperparameter tuning was performed using GridSearchCV. The model achieved an impressive accuracy of 97.62%.
+
+|              | precision | recall    | f1-score  | support     |
+|--------------|-----------|-----------|-----------|-------------|
+| Stay         | 0.954630  | 1.000000  | 0.976789  | 1536.000000 |
+| Exit         | 1.000000  | 0.952443  | 0.975642  | 1535.000000 |
+| accuracy     | 0.976229  | 0.976229  | 0.976229  | 0.976229    |
+| macro avg    | 0.977315  | 0.976221  | 0.976215  | 3071.000000 |
+| weighted avg | 0.977308  | 0.976229  | 0.976216  | 3071.000000 |
+
 
 ### Random Forest Algorithm
 
-Random Forest was developed, and hyperparameter tuning was conducted using GridSearchCV. The model achieved an accuracy of 94.89%.
+The Random Forest algorithm is an ensemble learning method that operates by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes (classification) or mean prediction (regression) of the individual trees. Random forests correct for decision trees' habit of overfitting to their training set. The algorithm introduces randomness when growing the trees, which leads to a diverse set of trees. During prediction, the random forest aggregates the predictions of the individual trees to make a final prediction. Mathematically, the algorithm combines the predictions of multiple decision trees to improve generalizability and robustness [^rf1]. The prediction of the random forest for a new data point can be expressed as the mode of the predictions of the individual trees:
 
+$\hat{Y}^​ = model\left(Y_1, Y_2, ..., Y_n\right)$
+
+where $\hat{Y}$ is the predicted class for the new data point, and $Y_1, Y_2, ..., Y_n$ are the predictions of the individual trees [^rf2]. Random Forest was developed, and hyperparameter tuning was conducted using GridSearchCV. The model achieved an accuracy of 94.89%.
+
+|              | precision | recall    | f1-score  | support     |
+|--------------|-----------|-----------|-----------|-------------|
+| Stay         | 0.977163  | 0.919271  | 0.947333  | 1536.000000 |
+| Exit         | 0.923739  | 0.978502  | 0.950332  | 1535.000000 |
+| accuracy     | 0.948877  | 0.948877  | 0.948877  | 0.948877    |
+| macro avg    | 0.950451  | 0.948886  | 0.948833  | 3071.000000 |
+| weighted avg | 0.950460  | 0.948877  | 0.948832  | 3071.000000 |
 
 
 ## Model Evaluation
+
+### Evaluation Metrics
+
+The precision, recall, and F1-score are important metrics for evaluating the performance of classification models. They are particularly useful in assessing the model's ability to correctly identify positive cases and avoid misclassification.
+
+#### Precision
+
+Precision is the ratio of true positive predictions to the total number of positive predictions made by the model. It is calculated using the following formula:
+
+$\text{Precision} = \frac{TP}{TP + FP}$
+
+Where:<br>
+$(TP)$ is the number of true positive predictions (correctly predicted positive cases).<br>
+$(FP)$ is the number of false positive predictions (negative cases incorrectly classified as positive).
+
+Precision is a measure of the accuracy of the positive predictions. A high precision value indicates that when the model predicts a positive case, it is likely to be correct.
+
+#### Recall
+
+Recall, also known as sensitivity, is the ratio of true positive predictions to the total number of actual positive cases in the dataset. It is calculated using the following formula:
+
+$\text{Recall} = \frac{TP}{TP + FN}$
+
+Where:<br>
+( FN ) is the number of false negative predictions (positive cases incorrectly classified as negative).
+
+Recall measures the model's ability to identify all actual positive cases. A high recall value indicates that the model is able to correctly identify a large proportion of the positive cases in the dataset.
+
+#### F1-score
+
+The F1-score is the harmonic mean of precision and recall, and it provides a balance between the two metrics. It is calculated using the following formula:
+
+$F1\text{-}score = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$
+
+The F1-score takes both false positives and false negatives into account, making it a useful metric for imbalanced datasets where the number of negative cases is much larger than the number of positive cases. A high F1-score indicates that the model has both good precision and recall. These metrics are commonly used to evaluate the performance of classification models and are particularly useful when the class distribution is imbalanced. They provide valuable insights into how well the model is performing in terms of identifying positive cases and avoiding misclassifications.
 
 ### Confusion Matrix
 
 Confusion matrices for each model were generated, indicating good performance in predicting true positive and true negative values.
 
+![confussion-matrix](https://github.com/naufalmuafi/bank-customer-churn-prediction/assets/72964378/b7d1790f-765c-45a9-b437-05b24bd37591)
+
+
 ### Model Comparison
+
+In terms of advantages and disadvantages, the KNN algorithm is simple and easy to implement, but it can be computationally expensive for large datasets and requires careful selection of the value of K. Logistic Regression is a linear model that is easy to interpret and can handle both binary and continuous input features, but it may not perform well when the relationship between the input features and the output is non-linear. The SVC algorithm is effective in high-dimensional spaces and can handle non-linear decision boundaries, but it can be sensitive to the choice of kernel function and hyperparameters. The Random Forest algorithm is robust to overfitting and can handle both categorical and continuous input features, but it can be computationally expensive and difficult to interpret.
+
+|       | train     | test      |
+|-------|-----------|-----------|
+| KNN   | 88.773101 | 81.243894 |
+| LR    | 73.044045 | 72.484533 |
+| SVC   | 100.0     | 97.622924 |
+| RF    | 100.0     | 94.887659 |
 
 A comparison of model accuracies revealed that the Support Vector Classifier (SVC) achieved the highest accuracy on both training and test sets.
 
+![model-comparison](https://github.com/naufalmuafi/bank-customer-churn-prediction/assets/72964378/1e82fe2c-8559-4acd-85e4-748ec01f22fe)
+
+The confusion matrix is a table that summarizes the performance of a classification model by comparing the predicted and actual class labels. It consists of four values: true positives (TP), false positives (FP), true negatives (TN), and false negatives (FN).
 
 
 ## Model Prediction
@@ -220,20 +397,9 @@ To test the model, predictions were generated using sample data. The SVC algorit
    - Predicted: The Customer is more likely to Stay
 
 
-
 ## Conclusion
 
 The Support Vector Classifier (SVC) demonstrated superior performance in predicting bank customer churn in comparison to other models. The model achieved an accuracy of 97.62%, making it a reliable choice for implementation.
-
-### Recommendations
-
-1. Implement the SVC model for real-time customer churn prediction in the banking system.
-2. Continuously monitor and update the model with new data to ensure its accuracy over time.
-
-### Future Work
-
-1. Explore additional features and data sources to enhance model accuracy.
-2. Consider deploying the model in a production environment and integrate it with the bank's systems.
 
 
 ## References
@@ -241,3 +407,11 @@ The Support Vector Classifier (SVC) demonstrated superior performance in predict
 [^1]: [Xie, Y., Li, X., Ngai, E. W. T., & Ying, W. (2009). Customer churn prediction using improved balanced random forests. Expert Systems with Applications, 36(3), 5445-5449.](https://www.sciencedirect.com/science/article/pii/S0957417408004326)
 [^2]: [Tran, H., Le, N., & Nguyen, V. H. (2023). CUSTOMER CHURN PREDICTION IN THE BANKING SECTOR USING MACHINE LEARNING-BASED CLASSIFICATION MODELS. Interdisciplinary Journal of Information, Knowledge & Management, 18.](https://www.researchgate.net/publication/368911804_Customer_Churn_Prediction_in_the_Banking_Sector_Using_Machine_Learning-Based_Classification_Models)
 [^3]: [Cohen, D. A., Gan, C., Hwa, A., & Chong, E. Y. (2006). Customer satisfaction: a study of bank customer retention in New Zealand.](https://researcharchive.lincoln.ac.nz/items/cecd1d6f-5d98-4522-a730-9b65e0c7adad)
+[^over-sampling-1]: [Mohammed, R., Rawashdeh, J., & Abdullah, M. (2020, April). Machine learning with oversampling and undersampling techniques: overview study and experimental results. In 2020 11th international conference on information and communication systems (ICICS) (pp. 243-248). IEEE.](https://ieeexplore.ieee.org/abstract/document/9078901?casa_token=zwQWkVHTTbYAAAAA:Sr0rIrgCaloLp83pnimWRu2Tx8C0E_2u1Pw6whfmiv3GQW7_9bbm2ennh4JAjxzwGSmXYkFeVi1_)
+[^knn1]: [Ghunimat, D.M., Alzoubi, A.E., Alzboon, A.A., & Hanandeh, S. (2022). Prediction of concrete compressive strength with GGBFS and fly ash using multilayer perceptron algorithm, random forest regression and k-nearest neighbor regression. Asian Journal of Civil Engineering, 24, 169-177.](https://www.semanticscholar.org/paper/Prediction-of-concrete-compressive-strength-with-Ghunimat-Alzoubi/2bb0f80d2914eeeccdbf156c2d0c12fd1a0b2b5b)
+[^knn2]: [Adeshina, A.M. (2023). Prediction of Diabetes Mellitus using Machine Learning Algorithms: Comparative Analysis of K-Nearest Neighbor, Random Forest and Logistic Regression. SLU Journal of Science and Technology.](https://www.semanticscholar.org/paper/Prediction-of-Diabetes-Mellitus-using-Machine-of-Adeshina/79fe14595faeaab90b6fe242d86f49e118e9d750)
+[^lr1]: [Adeshina, A.M. (2023). Prediction of Diabetes Mellitus using Machine Learning Algorithms: Comparative Analysis of K-Nearest Neighbor, Random Forest and Logistic Regression. SLU Journal of Science and Technology.](https://www.semanticscholar.org/paper/Prediction-of-Diabetes-Mellitus-using-Machine-of-Adeshina/79fe14595faeaab90b6fe242d86f49e118e9d750)
+[^lr2]: [Das, S., Bhattacharyya, K., & Sarkar, S. (2023). Performance Analysis of Logistic Regression, Naive Bayes, KNN, Decision Tree, Random Forest and SVM on Hate Speech Detection from Twitter. International Research Journal of Innovations in Engineering and Technology.](https://www.semanticscholar.org/paper/Performance-Analysis-of-Logistic-Regression%2C-Naive-Das-Bhattacharyya/43b6d317c5ecf72d4bf6bd46e182b2b5fc97d43b)
+[^svc1]: [Afrianto, M.A., & Wasesa, M. (2020). Booking Prediction Models for Peer-to-peer Accommodation Listings using Logistics Regression, Decision Tree, K-Nearest Neighbor, and Random Forest Classifiers. Journal of Information Systems Engineering and Business Intelligence.](https://www.semanticscholar.org/paper/Booking-Prediction-Models-for-Peer-to-peer-Listings-Afrianto-Wasesa/4dd5ae54caac18ee0efe38dd4a704e9e2e8c4cf2)
+[^rf1]: [Afrianto, M.A., & Wasesa, M. (2020). Booking Prediction Models for Peer-to-peer Accommodation Listings using Logistics Regression, Decision Tree, K-Nearest Neighbor, and Random Forest Classifiers. Journal of Information Systems Engineering and Business Intelligence.](https://www.semanticscholar.org/paper/Booking-Prediction-Models-for-Peer-to-peer-Listings-Afrianto-Wasesa/4dd5ae54caac18ee0efe38dd4a704e9e2e8c4cf2)
+[^rf2]: [Mohsin, M.A., & Hamad, A.H. (2022). Performance Evaluation of SDN DDoS Attack Detection and Mitigation Based Random Forest and K-Nearest Neighbors Machine Learning Algorithms. Revue d'Intelligence Artificielle.](https://www.semanticscholar.org/paper/Performance-Evaluation-of-SDN-DDoS-Attack-Detection-Mohsin-Hamad/9b5b52f3e6a80328a227898695bd6f02c4ddb39e)
