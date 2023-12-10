@@ -1,6 +1,6 @@
 # **Project Documentation Report**
 
-Di era yang didominasi oleh transformasi digital dan harapan nasabah yang berkembang pesat, industri perbankan dihadapkan pada tantangan kritis untuk mempertahankan basis nasabah mereka. Menyadari pentingnya strategi proaktif, proyek ini berusaha mengatasi kekhawatiran mendesak tentang __churn__ nasabah melalui lensa analitika prediktif berbasis __machine learning__.
+Di era yang didominasi oleh transformasi digital dan harapan nasabah yang berkembang pesat, industri perbankan dihadapkan pada tantangan kritis untuk mempertahankan basis nasabah mereka. Menyadari pentingnya strategi proaktif, proyek ini berusaha mengatasi kekhawatiran mendesak tentang _churn_ nasabah melalui lensa analitika prediktif berbasis _machine learning_.
 
 ## _Project Overview_
 
@@ -9,7 +9,7 @@ _Bank Customer _Churn_ Prediction_
 
 ### _Project Executive Summary_
 
-Proyek ini memiliki tujuan utama yaitu untuk memprediksi __churn__ nasabah bank menggunakan analitika prediktif berbasis __machine learning__. Tujuannya adalah untuk menentukan apakah seorang nasabah lebih cenderung tinggal atau keluar dari bank. Pada proyek ini akan membandingkan berbagai algoritma __machine learning__ untuk mengidentifikasi model terbaik untuk prediksi ini.
+Proyek ini memiliki tujuan utama yaitu untuk memprediksi _churn_ nasabah bank menggunakan analitika prediktif berbasis _machine learning_. Tujuannya adalah untuk menentukan apakah seorang nasabah lebih cenderung tinggal atau keluar dari bank. Pada proyek ini akan membandingkan berbagai algoritma _machine learning_ untuk mengidentifikasi model terbaik untuk prediksi ini.
 
 ### _Project Author_
 Naufal Mu'afi
@@ -20,14 +20,15 @@ Naufal Mu'afi
 ## _Project Background_ atau _Project Domain_
 
 
-![Customer-_Churn_-Illustration-960x343](https://github.com/naufalmuafi/bank-customer-_churn_-prediction/assets/72964378/a2216848-5581-4617-a506-f4c8d44e17f6)
-
-Gambar 1. Ilustrasi _Chrun_ Nasabah Bank dari [CLEARTOUCH](https://www.cleartouch.in/what-is-customer-_churn_-and-how-do-you-prevent-it/)
+![Customer-_Churn_-Illustration](https://github.com/naufalmuafi/bank-customer-churn-prediction/assets/72964378/dd279228-77ff-4891-8418-21324768b7cf)
 
 
-Di industri perbankan, __churn__ nasabah adalah kekhawatiran yang kritis karena berdampak langsung pada pendapatan dan profitabilitas bank. Memahami dan memprediksi _churn_ nasabah dapat membantu bank mengambil langkah-langkah proaktif untuk mempertahankan nasabah. __Churn__ nasabah, yang didefinisikan sebagai kemungkinan nasabah menghentikan asosiasinya dengan sebuah perusahaan dalam jangka waktu tertentu, merupakan tantangan signifikan yang dihadapi banyak perusahaan global [^1]. Dikenal sebagai agitasi nasabah dalam bisnis, terjadi ketika nasabah menyatakan ketidakpuasan terhadap layanan atau produk yang diberikan oleh perusahaan dan memilih untuk beralih ke pesaing atau berhenti menggunakan layanan tersebut sama sekali.
+Gambar 1. Ilustrasi _Chrun_ Nasabah Bank dari [CLEARTOUCH](https://www.cleartouch.in/what-is-customer-churn-and-how-do-you-prevent-it/)
 
-Penelitian telah menunjukkan bahwa biaya mendapatkan nasabah baru lebih tinggi daripada mempertahankan nasabah yang sudah ada. Oleh karena itu, bank memiliki insentif finansial untuk mengidentifikasi faktor-faktor yang menyebabkan __churn__ dan mengambil langkah-langkah untuk menguranginya. Salah satu pendekatan yang dapat digunakan adalah menggunakan __machine learning__ untuk membangun model prediktif yang dapat mengidentifikasi nasabah yang cenderung __churn__.
+
+Di industri perbankan, _churn_ nasabah adalah kekhawatiran yang kritis karena berdampak langsung pada pendapatan dan profitabilitas bank. Memahami dan memprediksi _churn_ nasabah dapat membantu bank mengambil langkah-langkah proaktif untuk mempertahankan nasabah. _Churn_ nasabah, yang didefinisikan sebagai kemungkinan nasabah menghentikan asosiasinya dengan sebuah perusahaan dalam jangka waktu tertentu, merupakan tantangan signifikan yang dihadapi banyak perusahaan global [^1]. Dikenal sebagai agitasi nasabah dalam bisnis, terjadi ketika nasabah menyatakan ketidakpuasan terhadap layanan atau produk yang diberikan oleh perusahaan dan memilih untuk beralih ke pesaing atau berhenti menggunakan layanan tersebut sama sekali.
+
+Penelitian telah menunjukkan bahwa biaya mendapatkan nasabah baru lebih tinggi daripada mempertahankan nasabah yang sudah ada. Oleh karena itu, bank memiliki insentif finansial untuk mengidentifikasi faktor-faktor yang menyebabkan _churn_ dan mengambil langkah-langkah untuk menguranginya. Salah satu pendekatan yang dapat digunakan adalah menggunakan _machine learning_ untuk membangun model prediktif yang dapat mengidentifikasi nasabah yang cenderung _churn_.
 
 Penelitian pionir oleh F. F. Reichheld dan W. E. Sasser Jr. menunjukkan korelasi kuat antara retensi nasabah dan keuntungan perusahaan, dengan menunjukkan bahwa peningkatan retensi nasabah sebesar 5% saja menghasilkan peningkatan profitabilitas, mulai dari 20% hingga 85% di berbagai bisnis. Selain itu, penelitian secara konsisten menunjukkan bahwa mempertahankan klien yang sudah ada biayanya sekitar lima kali lebih rendah daripada mengakuisisi yang baru [^2].
 
@@ -39,19 +40,19 @@ Penelitian pionir oleh F. F. Reichheld dan W. E. Sasser Jr. menunjukkan korelasi
 Berdasarkan latar belakang yang telah didefinisikan, identifikasi masalah yang dapat dipecahkan dalam proyek ini tertaut dalam poin berikut.
 
 1. Bank ingin secara proaktif mengidentifikasi nasabah yang kemungkinan akan meninggalkan, memungkinkan mereka mengimplementasikan strategi retensi. Jadi, bagaimana data dapat didefinisikan untuk digunakan dalam membuat model yang baik?
-2. Prediksi yang akurat terkait dengan __churn__ nasabah dapat berdampak signifikan pada kepuasan nasabah dan kinerja bisnis secara keseluruhan. Lalu, bagaimana cara efektif untuk membuat model __machine learning__ untuk memprediksi __churn__ nasabah bank?
+2. Prediksi yang akurat terkait dengan _churn_ nasabah dapat berdampak signifikan pada kepuasan nasabah dan kinerja bisnis secara keseluruhan. Lalu, bagaimana cara efektif untuk membuat model _machine learning_ untuk memprediksi _churn_ nasabah bank?
 
 
 ### _Goals_
 
 Mendasari masalah yang telah diidentifikasi, maka selanjutnya tujuan yang diinginkan dari proyek ini dirincikan dalam 2 tujuan utama, yaitu:
 
-1. Mengembangkan model __machine learning__ untuk memprediksi _churn_ nasabah bank menggunakan data yang telah didefinisikan dan dianalisis dengan baik.
+1. Mengembangkan model _machine learning_ untuk memprediksi _churn_ nasabah bank menggunakan data yang telah didefinisikan dan dianalisis dengan baik.
 2. Mencapai akurasi tinggi yang dapat melampaui 85% dalam memprediksi, apakah seorang nasabah akan memilih untuk tinggal atau keluar dari bank.
 
 ### _Solution Statements_
 
-Untuk mencapai tujuan utama yang telah ditentukan, beberapa hal yang dilakukan adalah mengeksplorasi data dengan analisis yang kuat dan beberapa algoritma __machine learning__, termasuk _K-Nearest Neighbors_ (KNN), Regresi Logistik, _Support Vector Classifier_ (SVC), dan _Random Forest_. Selain itu, model juga akan disempurnakan dengan melakukan _Hyperparameter Tuning_ dan mengevaluasi untuk memilih model terbaik berdasarkan skor akurasi.
+Untuk mencapai tujuan utama yang telah ditentukan, beberapa hal yang dilakukan adalah mengeksplorasi data dengan analisis yang kuat dan beberapa algoritma _machine learning_, termasuk _K-Nearest Neighbors_ (KNN), Regresi Logistik, _Support Vector Classifier_ (SVC), dan _Random Forest_. Selain itu, model juga akan disempurnakan dengan melakukan _Hyperparameter Tuning_ dan mengevaluasi untuk memilih model terbaik berdasarkan skor akurasi.
 
 - Pertama, data dimuat dari dataset _open source_, seperti Kaggle. Kemudian, diperlukan pemahaman mendalam tentang definisi setiap fitur dalam dataset.
   
@@ -67,15 +68,15 @@ Untuk mencapai tujuan utama yang telah ditentukan, beberapa hal yang dilakukan a
    - **Menangani Data yang Tidak Seimbang dengan _Resample_:**
      Menangani dataset yang tidak seimbang dengan teknik _resampling_ seperti _oversampling_ atau _undersampling_.
    - **_Encoding_ Fitur Kategorikal:**
-     Mengubah fitur kategorikal ke dalam format yang sesuai untuk algoritma __machine learning__.
+     Mengubah fitur kategorikal ke dalam format yang sesuai untuk algoritma _machine learning_.
    - **Analisis Korelasi:**
      Meneliti korelasi antara fitur untuk mengidentifikasi dan menangani _multicollinearity_.
    - **Pembagian Data Latih dan Uji:**
      Membagi dataset menjadi set latih dan uji untuk evaluasi model.
    - **_Scaling_ Fitur:**
-     Menormalkan atau menyesuaikan skala fitur numerik untuk memastikan mereka berada pada skala yang serupa, bermanfaat bagi beberapa algoritma __machine learning__.
+     Menormalkan atau menyesuaikan skala fitur numerik untuk memastikan mereka berada pada skala yang serupa, bermanfaat bagi beberapa algoritma _machine learning_.
      
-- Dalam pengembangan model __machine learning__, beberapa algoritma diimplementasikan. Oleh karena itu, proyek ini mencakup implementasi empat algoritma, yaitu:
+- Dalam pengembangan model _machine learning_, beberapa algoritma diimplementasikan. Oleh karena itu, proyek ini mencakup implementasi empat algoritma, yaitu:
    - **Algoritma _K-Nearest Neighbors_ (KNN):**
      _K-Nearest Neighbors_ (KNN) adalah algoritma sederhana dan efektif yang digunakan untuk tugas klasifikasi dan regresi. Algoritma ini mengklasifikasikan titik data berdasarkan kelas mayoritas dari tetangga terdekatnya di ruang fitur. KNN dipilih karena keberhasilannya dalam menangani masalah klasifikasi dan kemampuannya untuk menangani pola kompleks dalam data.
 
@@ -108,7 +109,7 @@ Untuk mencapai tujuan utama yang telah ditentukan, beberapa hal yang dilakukan a
 
   $$\theta^* = \arg\min_{\theta \in H} \left( \frac{1}{K} \sum_{k=1}^K S(\text{Model}_{\theta}, \text{Validasi}_k) \right)$$
 
-  di mana $\text{Model}_{\theta}$ mewakili model yang dilatih dengan kombinasi hiperparameter $\theta$ dan $\text{Validasi}_k$ menunjukkan set validasi untuk lipatan ke-$k$.
+  di mana $\text{Model}_{\theta}$ mewakili model yang dilatih dengan kombinasi hiperparameter $\theta$ dan $\text{Validasi}_k$ menunjukkan set validasi untuk lipatan ke- $k$.
 
   _Grid Search Cross Validation_ membantu menemukan nilai hiperparameter yang mengoptimalkan kinerja dan generalisasi model ke data yang tidak terlihat.
 
@@ -145,15 +146,16 @@ Dengan memahami dampak finansial _churn_ pelanggan, bank dapat merancang strateg
 
 ## Data Understanding
 
-Dataset yang digunakan untuk proyek ini adalah [Bank Customer _Churn_ Prediction Dataset](https://www.kaggle.com/datasets/shantanudhakadd/bank-customer-_churn_-prediction/data) yang diperoleh dari Kaggle. Dataset ini berisi informasi tentang nasabah bank dan kemungkinan mereka untuk beralih.
+Dataset yang digunakan untuk proyek ini adalah [Bank Customer _Churn_ Prediction Dataset](https://www.kaggle.com/datasets/shantanudhakadd/bank-customer-churn-prediction/data) yang diperoleh dari Kaggle. Dataset ini berisi informasi tentang nasabah bank dan kemungkinan mereka untuk beralih.
 
-![dataset_info](https://github.com/naufalmuafi/bank-customer-_churn_-prediction/assets/72964378/e706020e-5584-4cc0-bfd4-092d2f17b9f1)
+![dataset_info](https://github.com/naufalmuafi/bank-customer-churn-prediction/assets/72964378/dfcd71e4-e081-4a82-a8a5-27b5804fc6bf)
+
 
 **Informasi Dataset:**
 
 Tipe | Informasi
 --- | ---
-Sumber | [Dataset Kaggle: Bank Customer _Churn_ Prediction](https://www.kaggle.com/datasets/shantanudhakadd/bank-customer-_churn_-prediction/data)
+Sumber | [Dataset Kaggle: Bank Customer _Churn_ Prediction](https://www.kaggle.com/datasets/shantanudhakadd/bank-customer-churn-prediction/data)
 Lisensi | Lainnya
 Kategori | `Ekonomi`, `Bisnis`, `Keuangan`, `Perbankan`
 Rating Penggunaan | 9,71
@@ -195,15 +197,18 @@ Penjelasan 14 kolom atau fitur dari dataset `_Churn__Modelling.csv`:
 
 Berdasarkan data Geografi nasabah, maka dapat divisualisasikan distribusinya seperti:
 
-![geo](https://github.com/naufalmuafi/bank-customer-_churn_-prediction/assets/72964378/7a13ccf8-c376-4ad8-a82f-4e648dc91c6d)
+![geo](https://github.com/naufalmuafi/bank-customer-churn-prediction/assets/72964378/7d9e75a5-d907-4e01-9080-ff9f9eef83cc)
+
 
 Selain itu, berikut adalah visualisasi distribusi fitur numerik dalam dataset:
 
-![data-dist](https://github.com/naufalmuafi/bank-customer-_churn_-prediction/assets/72964378/b95b07f8-db0a-4cae-8a81-a90c3d4eb8b9)
+![data-dist](https://github.com/naufalmuafi/bank-customer-churn-prediction/assets/72964378/39033f60-418a-4743-b7c7-d523ae3d897a)
+
 
 Dari plot, dapat disimpulkan bahwa fitur 'CreditScore,' 'Age,' dan 'Balance' menunjukkan karakteristik yang membuatnya cocok untuk dikategorikan sebagai distribusi normal. Meskipun terdapat lonjakan pada fitur 'Balance' di 0, menunjukkan konsentrasi nilai, distribusi keseluruhan tampak mengikuti pola normal. Di sisi lain, fitur 'EstimatedSalary' tidak menunjukkan korelasi atau hubungan yang jelas dalam data. Pengamatan ini menunjukkan bahwa 'EstimatedSalary' mungkin tidak mengikuti pola distribusi yang jelas atau mungkin tidak memiliki tren yang dapat dikenali.
 
-![outliers](https://github.com/naufalmuafi/bank-customer-_churn_-prediction/assets/72964378/9002256c-f367-4a11-844a-9e2778bfe1da)
+![outliers](https://github.com/naufalmuafi/bank-customer-churn-prediction/assets/72964378/c60b6a7c-2c91-4c5a-afb7-91ffe6194e84)
+
 
 Dapat dilihat bahwa beberapa fitur `CreditScore` dan `Age` menunjukkan adanya _outlier_. Untuk mengatasi hal ini, kita dapat menghapus _outlier_ menggunakan metode _Interquartile Range_ (IQR). Metode _Interquartile Range_ (IQR) adalah teknik statistik yang digunakan untuk mengidentifikasi _outlier_ dalam dataset. Metode ini didasarkan pada konsep kuartil, yang membagi dataset menjadi empat bagian sama. IQR adalah rentang antara kuartil pertama dan ketiga, dan mewakili 50% median. Metode IQR mengidentifikasi _outlier_ sebagai titik data yang berada di luar rentang 1,5 kali IQR di bawah kuartil pertama atau di atas kuartil ketiga.
 
@@ -217,21 +222,20 @@ $Batas atas= Q3 + 1.5 × IQR$
 
 Metode IQR adalah teknik yang berguna untuk mengidentifikasi outlier dalam dataset, terutama ketika data tidak terdistribusi normal. IQR tahan terhadap nilai ekstrim dan dapat digunakan untuk mengidentifikasi _outlier_ rendah dan tinggi. Namun, mungkin tidak efektif untuk dataset dengan ukuran sampel kecil atau ketika data sangat condong. Dalam kasus tersebut, metode deteksi outlier lainnya mungkin lebih sesuai.
 
+
+Dalam mengevaluasi hubungan antar fitur dalam dataset maupun korelasi dengan variabel target, metode yang dapat digunakan adalah matriks korelasi. Matriks korelasi memberikan gambaran tentang seberapa erat hubungan antar pasangan fitur. Berikut adalah visualisasi matriks korelasi untuk fitur-fitur dalam dataset:
+
+![correlation-matrix](https://github.com/naufalmuafi/bank-customer-churn-prediction/assets/72964378/d3cbaf97-88f4-4630-9836-6dabd4a6b678)
+
 ### Korelasi Antar Fitur
 
-Dalam mengevaluasi hubungan antar fitur dalam dataset, metode yang dapat digunakan adalah matriks korelasi. Matriks korelasi memberikan gambaran tentang seberapa erat hubungan antar pasangan fitur. Berikut adalah visualisasi matriks korelasi untuk fitur-fitur numerik:
-
-![correlation-matrix](https://github.com/naufalmuafi/bank-customer-_churn_-prediction/assets/72964378/9a1d3b03-5205-4f61-a9e7-0a9d9d663cb3)
-
 Beberapa observasi korelasi antar fitur:
-- Tidak ada korelasi yang signifikan antara fitur-fitur numerik. Korelasi yang dekat dengan nol menunjukkan bahwa fitur-fitur tersebut tidak memiliki hubungan linier yang kuat satu sama lain.
-- Fitur `CreditScore`, `Age`, dan `Balance` juga memiliki korelasi yang rendah satu sama lain, menunjukkan bahwa ketiga fitur tersebut tidak memiliki hubungan linier yang kuat.
+- Tidak ada korelasi yang signifikan antara fitur-fitur terhadap target. Korelasi yang dekat dengan nol menunjukkan bahwa fitur-fitur tersebut tidak memiliki hubungan linier yang kuat satu sama lain.
+- Fitur Numerik `CreditScore`, `Age`, dan `Balance` juga memiliki korelasi yang rendah satu sama lain, menunjukkan bahwa ketiga fitur tersebut tidak memiliki hubungan linier yang kuat.
 
 ### Korelasi dengan Variabel Target
 
-Selanjutnya, akan dilakukan evaluasi korelasi antara fitur-fitur dan variabel target 'Exited', yang menunjukkan apakah nasabah keluar atau tidak. Berikut adalah visualisasi korelasi antara fitur-fitur dan variabel target:
-
-![correlation-with-target](https://github.com/naufalmuafi/bank-customer-_churn_-prediction/assets/72964378/9c55827c-30ec-45e3-a576-d3e49ee82817)
+Selanjutnya, akan dilakukan evaluasi korelasi antara fitur-fitur dan variabel target 'Exited', yang menunjukkan apakah nasabah keluar atau tidak. 
 
 Beberapa observasi korelasi dengan variabel target:
 - Fitur `Age` memiliki korelasi negatif yang moderat dengan variabel target. Ini menunjukkan bahwa semakin tua usia nasabah, semakin rendah kemungkinan keluar dari bank.
@@ -249,7 +253,7 @@ Seperti yang disebutkan dalam pernyataan solusi, proyek ini menggunakan beberapa
 
 Untuk memberikan gambaran komprehensif tentang masalah data tidak seimbang, langkah pertama adalah mulai dengan mengeksplorasi data target.
 
-![Distribusi-Target](https://github.com/naufalmuafi/bank-customer-_churn_-prediction/assets/72964378/4becac2a-bd83-4222-8931-15d6f740e8c9)
+![Distribusi-Target](https://github.com/naufalmuafi/bank-customer-churn-prediction/assets/72964378/4becac2a-bd83-4222-8931-15d6f740e8c9)
 
 Gambar di atas menunjukkan bahwa Data Target memiliki Data yang Tidak Seimbang, sehingga masalah tersebut dapat diatasi dengan metode _resample_. **Over-sampling** acak, yang diklasifikasikan sebagai algoritma non-heuristik, bertujuan untuk mengatasi ketidakseimbangan kelas dengan secara acak menduplikasi instance dari target minoritas, sehingga mempromosikan distribusi yang lebih seimbang [^over-sampling-1]. Namun, pendekatan ini memiliki dua kelemahan. Pertama, itu meningkatkan risiko overfitting dengan menghasilkan reproduksi identik dari instance kelas minoritas [^over-sampling-1]. Kedua, itu memperparah sifat yang memakan waktu dari proses pembelajaran, terutama ketika dataset asli besar tetapi tidak seimbang, mencerminkan karakteristik dataset kami.
 
@@ -410,7 +414,7 @@ _Precision, recall,_ dan _F1-score_ adalah metrik penting untuk mengevaluasi kin
 #### _Precision_
 Presisi adalah rasio prediksi positif benar terhadap total prediksi positif yang dibuat oleh model. Ini dihitung menggunakan rumus berikut:
 
-$$\text{Presisi} = \frac{TP}{TP + FP}$$
+$$\text{Precision} = \frac{TP}{TP + FP}$$
 
 Dimana:<br>
 $(TP)$ adalah jumlah prediksi positif benar (kasus positif yang diprediksi dengan benar).<br>
@@ -443,7 +447,7 @@ F1-score memperhitungkan baik positif palsu maupun negatif palsu, sehingga menja
 
 Matriks kebingungan untuk setiap model dihasilkan, menunjukkan kinerja yang baik dalam memprediksi nilai positif dan nilai negatif sejati.
 
-![matriks-kebingungan](https://github.com/naufalmuafi/bank-customer-_churn_-prediction/assets/72964378/b7d1790f-765c-45a9-b437-05b24bd37591)
+![matriks-kebingungan](https://github.com/naufalmuafi/bank-customer-churn-prediction/assets/72964378/b7d1790f-765c-45a9-b437-05b24bd37591)
 
 Matriks kebingungan adalah tabel yang merangkum kinerja model klasifikasi dengan membandingkan label kelas yang diprediksi dan aktual. Ini terdiri dari empat nilai: true positive (TP), false positive (FP), true negative (TN), dan false negative (FN).
 
@@ -462,7 +466,7 @@ Dalam hal kelebihan dan kekurangan, algoritma KNN sederhana dan mudah diimplemen
 
 Perbandingan akurasi model menunjukkan bahwa Support Vector Classifier (SVC) mencapai akurasi tertinggi baik pada set pelatihan maupun uji.
 
-![model-comparison](https://github.com/naufalmuafi/bank-customer-_churn_-prediction/assets/72964378/1e82fe2c-8559-4acd-85e4-748ec01f22fe)
+![model-comparison](https://github.com/naufalmuafi/bank-customer-churn-prediction/assets/72964378/1e82fe2c-8559-4acd-85e4-748ec01f22fe)
 
 
 ## _Model Prediction_
@@ -492,7 +496,7 @@ Support Vector Classifier (SVC) menunjukkan kinerja unggul dalam memprediksi kel
 ## _References_
 
 [^1]: [Xie, Y., Li, X., Ngai, E. W. T., & Ying, W. (2009). Customer _churn_ prediction using improved balanced random forests. Expert Systems with Applications, 36(3), 5445-5449.](https://www.sciencedirect.com/science/article/pii/S0957417408004326)
-[^2]: [Tran, H., Le, N., & Nguyen, V. H. (2023). CUSTOMER CHURN PREDICTION IN THE BANKING SECTOR USING _machine learning_-BASED CLASSIFICATION MODELS. Interdisciplinary Journal of Information, Knowledge & Management, 18.](https://www.researchgate.net/publication/368911804_Customer__Churn__Prediction_in_the_Banking_Sector_Using_Machine_Learning-Based_Classification_Models)
+[^2]: [Tran, H., Le, N., & Nguyen, V. H. (2023). CUSTOMER CHURN PREDICTION IN THE BANKING SECTOR USING _machine learning_-BASED CLASSIFICATION MODELS. Interdisciplinary Journal of Information, Knowledge & Management, 18.](https://www.researchgate.net/publication/368911804_Customer_Churn_Prediction_in_the_Banking_Sector_Using_Machine_Learning-Based_Classification_Models)
 [^3]: [Cohen, D. A., Gan, C., Hwa, A., & Chong, E. Y. (2006). Customer satisfaction: a study of bank customer retention in New Zealand.](https://researcharchive.lincoln.ac.nz/items/cecd1d6f-5d98-4522-a730-9b65e0c7adad)
 [^over-sampling-1]: [Mohammed, R., Rawashdeh, J., & Abdullah, M. (2020, April). _machine learning_ with oversampling and undersampling techniques: overview study and experimental results. In 2020 11th international conference on information and communication systems (ICICS) (pp. 243-248). IEEE.](https://ieeexplore.ieee.org/abstract/document/9078901?casa_token=zwQWkVHTTbYAAAAA:Sr0rIrgCaloLp83pnimWRu2Tx8C0E_2u1Pw6whfmiv3GQW7_9bbm2ennh4JAjxzwGSmXYkFeVi1_)
 [^knn1]: [Ghunimat, D.M., Alzoubi, A.E., Alzboon, A.A., & Hanandeh, S. (2022). Prediction of concrete compressive strength with GGBFS and fly ash using multilayer perceptron algorithm, random forest regression and k-nearest neighbor regression. Asian Journal of Civil Engineering, 24, 169-177.](https://www.semanticscholar.org/paper/Prediction-of-concrete-compressive-strength-with-Ghunimat-Alzoubi/2bb0f80d2914eeeccdbf156c2d0c12fd1a0b2b5b)
